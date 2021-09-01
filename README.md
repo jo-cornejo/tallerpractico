@@ -1,4 +1,4 @@
-Ejercicio 2:
+# Ejercicio 2:
 https://snack.expo.dev/@danielafp/ejercicio-2---parcial
 
 # Getting Started with Create React App
