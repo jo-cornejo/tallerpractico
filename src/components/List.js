@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Lista(props) {
+export default function List(props) {
   const { listItems, onAdd, onRemove, onDelete } = props;
-  const itemPrice = listItems.reduce((a, c) => a + c.quantity * c.price, 0);
+  const itemsPrice = listItems.reduce((a, c) => a + c.quantity * c.price, 0);
   return (
     <aside className="block col-1">
       <h2>Productos en la lista</h2>
@@ -31,10 +31,10 @@ export default function Lista(props) {
 
         {listItems.length !== 0 && (
           <>
-          <hr></hr>
+            <hr></hr>
             <div className="row1">
-              <div className="col-2"> Total: </div>
-              <div className="col-1 text-right"> ${itemPrice.toFixed(2)}</div>
+              <div className="col-2">Total: </div>
+              <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
             </div>
             <hr />
           </>

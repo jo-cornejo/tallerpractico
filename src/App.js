@@ -1,9 +1,11 @@
-import Main from './components/Main';
-import Lista from './components/Lista';
-import proddisp from './proddisp';
+import List from './components/List';
+import data from './data';
 import { useState } from 'react';
+import Select from 'react-select';
+
+
 function App() {
-  const { products } = proddisp;
+  const { products } = data;
   const [listItems, setListItems] = useState([]);
   const onAdd = (product) => {
     const exist = listItems.find((x) => x.id === product.id);
@@ -32,17 +34,36 @@ function App() {
   const onDelete = (product) => {
     setListItems(listItems.filter((x) => x.id !== product.id));
   };
+
+  const [result,ddlValue] = useState(products)
+  const ddlHandler = e =>{
+    ddlValue(e);
+  }
+
   return (
+    
     <div className="App">
-      
       <div className="row">
-        <Main products={products} onAdd={onAdd}></Main>
-        <Lista
+        <main className="block col-2">
+        <h1>Lista de compras</h1>
+        <h2>Productos</h2>
+        <div className="row1">
+          <div className="col-2">
+            <Select placeholder="Seleccione un producto"
+              options={products} onChange={ddlHandler}
+            />
+          </div>
+          <div className="col-1">
+            <button className="new" onClick={() => onAdd(result)}>Agregar a la lista</button>
+          </div>
+          </div>
+        </main>
+        <List
           listItems={listItems}
           onAdd={onAdd}
           onRemove={onRemove}
           onDelete={onDelete}
-        ></Lista>
+        ></List>
       </div>
     </div>
   );

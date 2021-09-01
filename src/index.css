@@ -69,3 +69,10 @@ button.delete {
   background-color: #f04040;
   width: 2rem;
 }
+
+button.new{
+  background-color: #f0c040;
+  height: 2.1rem;
+  font-family: 'Calibri';
+  font-size: 1rem;
+}
